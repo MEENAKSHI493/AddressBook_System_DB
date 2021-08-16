@@ -1,0 +1,105 @@
+-------------------------------------------------------------------------------------------------------------
+                                 Welcome to AdderssbookSystemDB
+--------------------------------------------------------------------------------------------------------------
+ # UC1
+---------------------------------------------------------------------------------------------------------------
+1. show databases;                                                   #  before create show database 
+
+2. create database Addressbookservice_DB;                            # create database Addressbookservice_DB
+
+3. show databases;                                                     # after creating database
+
+4. use Addressbookservice_DB;                                        # use addressbookdatabase
+
+5.  select database();                                                # view database 
+--------------------------------------------------------------------------------------------------------------
+# UC2
+------------------------------------------------------------------------------------------------------------
+1. create table Addressbook                                          # Create table
+    -> (                                                             
+    -> id                 INT unsigned NOT NULL AUTO_INCREMENT,              # unique id            
+    -> firsname           VARCHAR (50) NOT NULL,                             # firstname of Addressbook                                          
+    -> lastname           VARCHAR (50) NOT NULL,                              # lastname   of Addressbook                                                                                   
+    -> address            VARCHAR(110) NOT NULL,                              # address  of Addressbook                                          
+    -> city               VARCHAR(30) NOT NULL,                               # city  of Addressbook                                          
+    -> state              VARCHAR(50) NOT NULL,                              # state of Addressbook                                          
+    -> zip                INT(6) NOT NULL,                                   # zip of Addressbook                                          
+    -> phonenumber        BIGINT  NOT NULL,                                    # phonenumber of Addressbook 
+    -> email              VARCHAR (50) NOT NULL,                              # email  of Addressbook                                            
+    -> PRIMARY KEY(id)                                                    # id is primry key
+    -> );
+
+2.   describe  insert into Addressbook;
+    
+------------------------------------------------------------------------------------------------------------------
+  # UC3
+---------------------------------------------------------------------------------------------------------------------
+# INSERT TABLE VALUES
+
+1. insert into Addressbook(firstname,lastname,address,city,state,zip,phonenumber,email)values
+    -> ('meenakshi','sabde','Bidar','Basvakalyan','karnataka',580403,7406998045,'meena123@gmail.com'),
+    -> ('namdevreddy','sabde','Bidar','Basvakalyan','karnataka',580403,7445678045,'ntr@gmail.com'),
+    -> ('kiran','patil','Bidar','Basvakalyan','karnataka',580405,7875456045,'kiran123@gmail.com'),
+    -> ('sejel','gouda','Bidar','Basvakalyan','karnataka',580405,7875456045,'Seju123@gmail.com'); 
+
+2.   select * from  Addressbook;
+-----------------------------------------------------------------------------------------------------------------
+  # UC4 
+--------------------------------------------------------------------------------------------------------------
+1.  update Addressbook set city ='gulbarga' where firstname ='shilpa';                    # retriving data
+
+2. update Addressbook set address ='gulbarga near appa temple ' where firstname ='sejel';  # eddinting data
+
+3. select * from Addressbook                                                       #table data
+---------------------------------------------------------------------------------------------------------------
+ # UC5
+------------------------------------------------------------------------------------------------------------
+1.  delete from Addressbook where firstname =' meenakshi';
+2. select * from Addressbook;
+-------------------------------------------------------------------------------------------------------------
+  # UC6
+-------------------------------------------------------------------------------------------------------
+1 . select * from Addressbook where city = 'Basavakalyan' and state ='karnataka';
+----------------------------------------------------------------------------------------------------------
+ # UC7 
+----------------------------------------------------------------------------------------------------------
+1. select firstname,count(firstname)from Addressbook where state ='karnakata' and city ='Basavakalyan';
+
+2.select state,count(firstname)from Addressbook group by state;
+
+3.select city,count(firstname)from Addressbook group by state;
+---------------------------------------------------------------------------------------------------------------
+ # UC8
+---------------------------------------------------------------------------------------------------------
+ 1.  insert into Addressbook(firstname,lastname,address,city,state,zip,phonenumber,email)values
+    -> ('puja','gouda','Bhalki','Bidar','karnataka',580405,7808456045,'S.puja23@gmail.com');
+2.  select * from Addressbook;
+
+3. select * from Addressbook where city ='Bavasavakalyan' order by firstname;
+----------------------------------------------------------------------------------------------------------------
+ #UC9
+---------------------------------------------------------------------------------------------------------------
+1.  update Addressbook set Addressbook_type = 'family',Addressbook_name = 'familybook' where firstname in ('meenakshi','sejel');
+
+2.update Addressbook set Addressbook_type = 'friend',Addressbook_name = 'frindbook' where firstname in ('meenakshi','puja');
+
+3.select * from Addressbook;
+------------------------------------------------------------------------------------------------------------------------
+ # UC10
+--------------------------------------------------------------------------------------------------------------------
+1.  update Addressbook set addressbook_type ='firend' where firstname ='meenakshi';
+
+2.
+select count(firstname)from Addressbook where Addressbook_type ='friend';
+
+3. update Addressbook set Addressbook_type = 'family',Addressbook_name = 'familybook' where firstname in ('meenakshi','sejel');
+
+4. select count(firstname)from Addressbook where Addressbook_type ='family';
+---------------------------------------------------------------------------------------------------------------------
+ #UC11
+-------------------------------------------------------------------------------------------------------------
+1. insert into Addressbook(firstname,lastname,address,city,state,zip,phonenumber,email,AddressbooK_type,address_name)values
+    ('sangu','chowdri','gumpa','Bidar','karnakata',585403,'patil122@gmail.com','friend','friendbook'),
+    ('seju','chowdri','gumpa','Bhalki','karnakata',585403,'pari122@gmail.com','family','familybook'); 
+
+2 . select * from Addressbook;
